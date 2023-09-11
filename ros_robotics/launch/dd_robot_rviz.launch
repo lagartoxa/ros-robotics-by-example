@@ -2,13 +2,12 @@
 <launch>
     <!-- Values passed by command line input -->
     <arg name="model" />
-    <arg name="gui" default="false" />
+    <arg name="gui" default="False" />
 
     <!-- Setting the parameters on the Parameter Server -->
     <param name="robot_description"
         textfile="$(find ros_robotics)/urdf/$(arg model)"
     />
-    <param name="use_ui" value="$(arg gui)" />
 
     <!-- joint_state_publisher: -->
     <!--    Reads the robot_description param from the Param Server, -->
@@ -16,7 +15,13 @@
     <!-- message with all those joints. It can be used with -->
     <!-- robot_state_publisher to publish tfs for all joints states. -->
     <!-- http://wiki.ros.org/joint_state_publisher -->
-    <node name="joint_state_publisher"
+    <node if="$(arg gui)"
+        name="joint_state_publisher"
+        pkg="joint_state_publisher_gui"
+        type="joint_state_publisher_gui"
+    />
+    <node unless="$(arg gui)"
+        name="joint_state_publisher"
         pkg="joint_state_publisher"
         type="joint_state_publisher"
     />

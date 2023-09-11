@@ -6,7 +6,14 @@ The road so far:
  - Rviz config file
  - Basic launcher file
 
-Next step: Add wheels.
+Next step: Add color.
 
-Current page: 48.
+Current page: 52.
+
+
+## How to run:
+ - Create a directory and cd into it
+ - Clone this repo with ```git clone git@github.com:lagartoxa/ros-robotics-by-example.git src```
+ - Run ```$ catkin_make```
+ - Source the setup file with ```$ source {your_directory}/devel/setup.zsh # or setup.bash if you don't use zsh```
 

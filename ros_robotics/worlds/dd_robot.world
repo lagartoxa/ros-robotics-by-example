@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+        <name>construction_cone_01</name>
+        <uri>model://construction_cone</uri>
+        <pose>3.0 0 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>construction_cone_02</name>
+        <uri>model://construction_cone</uri>
+        <pose>-3.0 0 0 0 0 0</pose>
+    </include>
+  </world>
+</sdf>
+

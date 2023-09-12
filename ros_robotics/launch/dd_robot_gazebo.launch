@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <launch>
+    <arg name="model" />
+
     <!-- Including empty world from gazebo package -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="world_name"
@@ -15,5 +17,17 @@
     <node name="spawn_urdf" pkg="gazebo_ros"
         type="spawn_model" output="screen"
         args="-file $(find ros_robotics)/urdf/dd_robot.gazebo -urdf -model dd_robot" />
+
+    <param name="robot_description"
+        textfile="$(find ros_robotics)/urdf/$(arg model)"
+    />
+
+    <node name="joint_state_publisher"
+        pkg="joint_state_publisher"
+        type="joint_state_publisher" />
+
+    <node name="robot_state_publisher"
+        pkg="robot_state_publisher"
+        type="robot_state_publisher" />
 </launch>
 
